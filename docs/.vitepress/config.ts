@@ -97,6 +97,8 @@ const themeConfig: ThemeContext = {
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
+    title: 'study-wiki',  // 设置网站的名称
+    description: '这是一份学习笔记',  // 设置网站描述
     themeConfig: {
       // 其他主题配置项
     }
