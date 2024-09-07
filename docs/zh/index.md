@@ -14,7 +14,7 @@ hero:
       link: /web/
     - theme: alt
       text: SQL
-      link: /SQL/
+      link: /sql/
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
