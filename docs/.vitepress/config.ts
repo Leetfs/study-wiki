@@ -93,5 +93,5 @@ const themeConfig: ThemeContext = {
 }
 
 
-// https://vitepress.dev/reference/site-config
-export default withThemeContext(themeConfig, genConfig)
+// https://vitepress.vuejs.org/config/app-configs
+export default defineConfig({})
