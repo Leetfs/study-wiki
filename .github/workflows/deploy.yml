@@ -23,7 +23,10 @@ jobs:
         run: npm install -g wrangler
 
       - name: Publish to Cloudflare Pages
-        run: wrangler pages deploy docs/.vitepress/dist --project-name=study-wiki --branch=production
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
+          projectName: stduy-wiki
+          directory: docs/.vitepress/dist
+          wranglerVersion: '3'
