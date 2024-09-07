@@ -23,9 +23,11 @@ jobs:
         env:
           SHELL: /bin/bash  # 设置 SHELL 环境变量为 bash
 
-      # 第三步：将 pnpm 的全局路径添加到环境变量 PATH 中
+      # 第三步：将 pnpm 的全局路径添加到 PATH 中，使用环境文件方法
       - name: 添加 pnpm 到 PATH
-        run: echo "::add-path::$(pnpm env get-bin-path)"
+        run: |
+          echo "PNPM_HOME=$(pnpm env get-bin-path)" >> $GITHUB_ENV
+          echo "$PNPM_HOME" >> $GITHUB_PATH
 
       # 第四步：安装依赖
       - name: 安装依赖
