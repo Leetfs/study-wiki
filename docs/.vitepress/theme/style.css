@@ -42,17 +42,6 @@
  * - `danger`: Used to show error, or dangerous message to the users. Used
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
-/* 强制将导航栏背景设置为透明 */
-  .vp-nav, .vp-nav.sticky {
-  background-color: transparent !important; /* 使用 !important 强制覆盖默认背景色 */
-  box-shadow: none !important; /* 移除阴影 */
-}
-
-/* 当导航栏滚动时保持透明 */
-  .vp-nav.sticky {
-  background-color: transparent !important;
-}
-
 
  :root {
   --vp-c-default-1: var(--vp-c-gray-1);
@@ -167,5 +156,16 @@
 
 .VPButton.medium {
   border-radius: 8px !important;
+}
+
+/* 强制将导航栏背景设置为透明 */
+.vp-nav, .vp-nav.sticky {
+  background-color: transparent !important; /* 使用 !important 强制覆盖默认背景色 */
+  box-shadow: none !important; /* 移除阴影 */
+}
+
+/* 当导航栏滚动时保持透明 */
+  .vp-nav.sticky {
+  background-color: transparent !important;
 }
 
