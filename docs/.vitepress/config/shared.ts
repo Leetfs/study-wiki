@@ -5,9 +5,7 @@ import { search as zhSearch } from './zh'
 export const shared = defineConfig({
   title: 'VitePress',
 
-  rewrites: {
-    'en/:rest*': ':rest*'
-  },
+
 
   lastUpdated: true,
   cleanUrls: true,
@@ -61,10 +59,6 @@ export const shared = defineConfig({
         indexName: 'vitepress',
         locales: {
           ...zhSearch,
-          ...ptSearch,
-          ...ruSearch,
-          ...esSearch,
-          ...koSearch
         }
       }
     },
