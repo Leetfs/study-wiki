@@ -1,0 +1,36 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - master  # 当代码推送到 master 分支时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # 安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 构建项目（例如构建 VitePress 站点）
+      - name: Build project
+        run: npm run docs:build
+
+      # 部署到 Cloudflare Pages
+      - name: Publish to Cloudflare Pages
+        run: npx wrangler pages publish docs/.vitepress/dist --project-name=my-vitepress-site --branch=production
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

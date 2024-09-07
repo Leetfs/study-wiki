@@ -1,0 +1,6 @@
+name = "study-wiki"  # 你的项目名称
+account_id = "<ac81124d7446b62a858a9c9f46016852>"  # 你的 Cloudflare 账户ID
+project = "study-wiki"  # Cloudflare Pages 的项目名
+
+[env.production]
+compatibility_date = "2024-09-06"
