@@ -163,13 +163,43 @@
 }
 
 
-/* 使用更高优先级覆盖导航栏背景 */
-header.vp-nav, header.vp-nav.sticky {
-  background-color: transparent !important; /* 强制覆盖背景颜色 */
-  box-shadow: none !important; /* 移除阴影 */
+
+
+/* 初始状态：透明背景 */
+header.vp-nav {
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
 }
 
-/* 如果导航栏使用了自定义 class 例如 .sticky-active 或其他名称时，也覆盖 */
-header.vp-nav.sticky-active {
-  background-color: transparent !important;
+/* 当页面滚动时：显示背景色和阴影 */
+header.vp-nav.sticky {
+  background-color: var(--vp-c-bg, #ffffff); /* 变为白色背景，可根据需要调整 */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 导航栏文字颜色 */
+header.vp-nav a {
+  color: var(--vp-c-text-primary, #000); /* 默认文本颜色 */
+  transition: color 0.3s ease;
+}
+
+/* 滚动时导航栏文字颜色不变 */
+header.vp-nav.sticky a {
+  color: var(--vp-c-text-primary, #000); /* 滚动后文字保持颜色 */
+}
+
+/* 暗黑模式处理 */
+.dark header.vp-nav {
+  background-color: transparent;
+}
+
+.dark header.vp-nav.sticky {
+  background-color: var(--vp-c-bg-dark, #1a1a1a); /* 暗黑模式背景色 */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); /* 暗黑模式阴影 */
+}
+
+.dark header.vp-nav a {
+  color: var(--vp-c-text-dark, #ffffff); /* 暗黑模式下的文本颜色 */
 }
