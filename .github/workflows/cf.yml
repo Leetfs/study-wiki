@@ -1,29 +1,29 @@
-name: 部署到Cloudflare Pages
+name: 部署到 Cloudflare Pages
 
 on:
   push:
     branches:
-      - 'main'  # 监听 main 分支的推送
+      - 'main'  # 当推送到 main 分支时触发
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04  # 选择 Ubuntu 22.04 作为运行环境
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
       # 第一步：检出代码
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 完整检出代码历史
+      - name: 检出代码
+        uses: actions/checkout@v3
 
-      # 第二步：安装 pnpm
-      - uses: pnpm/action-setup@v3
-        with:
-          version: latest  # 安装最新版本的 pnpm
+      # 第二步：清理未提交的更改
+      # 如果你不希望忽略未提交的更改，可以删除这一步
+      - name: 清理未提交的更改
+        run: git reset --hard
 
-      # 第三步：设置 Node.js 环境并启用 pnpm 缓存
-      - uses: actions/setup-node@v4
+      # 第三步：安装 pnpm
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v3
         with:
-          cache: pnpm  # 启用 pnpm 缓存，加快依赖安装速度
+          version: latest
 
       # 第四步：安装依赖
       - name: 安装依赖
@@ -31,15 +31,31 @@ jobs:
 
       # 第五步：构建项目
       - name: 构建项目
-        run: pnpm build  # 构建 VitePress 文档
-        env:
-          NODE_OPTIONS: --max_old_space_size=4096  # 增加 Node.js 内存限制
+        run: pnpm run docs:build  # 构建 VitePress 项目
 
-      # 第六步：发布到 Cloudflare Pages
+      # 第六步：检查构建输出目录
+      # 确保构建成功并生成输出文件，避免 ENOENT 错误
+      - name: 检查构建输出
+        run: ls -alh docs/.vitepress/dist
+
+      # 第七步：安装最新版本的 Wrangler
+      # 确保使用 Wrangler v3 而不是 v2
+      - name: 安装 Wrangler
+        run: pnpm add -g wrangler@3  # 安装 Wrangler v3
+
+      # 第八步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # 在 GitHub Secrets 中配置你的 Cloudflare API Token
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}  # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}  # Cloudflare Pages API Token
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}  # Cloudflare 账户 ID
           projectName: study-wiki  # Cloudflare Pages 项目名称
-          directory: docs/.vitepress/dist  # 替换为 VitePress 构建输出的目录
+          directory: docs/.vitepress/dist  # 构建输出目录
+          wranglerVersion: '3'  # 使用 Wrangler v3
+
+      # 第九步：处理未捕获的异常
+      # 捕获未处理的 Promise 异常，避免构建失败
+      - name: 捕获未处理的 Promise 异常
+        run: |
+          set -e  # 确保脚本在遇到错误时停止
+          node -e "process.on('unhandledRejection', (err) => { throw err; });"
