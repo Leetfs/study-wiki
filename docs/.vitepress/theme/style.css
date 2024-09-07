@@ -115,8 +115,6 @@
 }
 
 .dark:root {
-  --vp-c-bg-nav: transparent;  /* 透明背景 */
-  --vp-c-bg-nav-sticky: transparent; /* 当导航栏滚动时，依然保持透明 */
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
     #eaacb8 30%,
@@ -146,8 +144,6 @@
   --vp-custom-block-tip-text: var(--vp-c-text-1);
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-  --vp-c-bg-nav: transparent; /* 透明背景 */
-  --vp-c-bg-nav-sticky: transparent; /* 当导航栏滚动时，依然保持透明 */
 }
 
 /**
@@ -164,42 +160,3 @@
 
 
 
-
-/* 初始状态：透明背景 */
-header.vp-nav {
-  background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: none;
-}
-
-/* 当页面滚动时：显示背景色和阴影 */
-header.vp-nav.sticky {
-  background-color: var(--vp-c-bg, #ffffff); /* 变为白色背景，可根据需要调整 */
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* 导航栏文字颜色 */
-header.vp-nav a {
-  color: var(--vp-c-text-primary, #000); /* 默认文本颜色 */
-  transition: color 0.3s ease;
-}
-
-/* 滚动时导航栏文字颜色不变 */
-header.vp-nav.sticky a {
-  color: var(--vp-c-text-primary, #000); /* 滚动后文字保持颜色 */
-}
-
-/* 暗黑模式处理 */
-.dark header.vp-nav {
-  background-color: transparent;
-}
-
-.dark header.vp-nav.sticky {
-  background-color: var(--vp-c-bg-dark, #1a1a1a); /* 暗黑模式背景色 */
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); /* 暗黑模式阴影 */
-}
-
-.dark header.vp-nav a {
-  color: var(--vp-c-text-dark, #ffffff); /* 暗黑模式下的文本颜色 */
-}

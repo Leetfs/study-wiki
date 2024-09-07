@@ -97,10 +97,20 @@ const themeConfig: ThemeContext = {
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
-    title: 'study-wiki',  // 设置网站的名称
-    description: '这是一份学习笔记',  // 设置网站描述
-    themeConfig: {
-      nav, //使用定义的nav
-      // 其他主题配置项
+  title: 'study-wiki',  // 设置网站名称
+  description: '这是一份学习笔记',  // 设置网站描述
+  themeConfig: {
+    nav, // 使用定义的导航栏配置
+    sidebarOptions, // 使用定义的侧边栏配置
+    // 其他主题配置项
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        css: {
+          additionalData: `@import './theme/style.css';`  // 引入自定义样式
+        }
+      }
     }
-  })
+  }
+})
