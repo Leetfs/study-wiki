@@ -39,8 +39,7 @@ jobs:
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}  # Cloudflare Pages API Token
-          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}  # Cloudflare 账户 ID
-          projectName: study-wiki  # 项目名称，替换为你的 Cloudflare Pages 项目名称
-          directory: docs/.vitepress/dist  # 构建输出的目录
-          wranglerVersion: '3'  # 使用 Wrangler v3 版本
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # 在 GitHub Secrets 中配置你的 Cloudflare API Token
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}  # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
+          projectName: study-wiki  # Cloudflare Pages 项目名称
+          directory: docs/.vitepress/dist  # 替换为 VitePress 构建输出的目录
