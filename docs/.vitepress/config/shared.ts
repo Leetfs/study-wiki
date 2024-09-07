@@ -1,11 +1,16 @@
 import { defineConfig } from 'vitepress'
 import { search as zhSearch } from './zh'
-
+import { search as ptSearch } from './pt'
+import { search as ruSearch } from './ru'
+import { search as esSearch } from './es'
+import { search as koSearch } from './ko'
 
 export const shared = defineConfig({
   title: 'VitePress',
 
-
+  rewrites: {
+    'en/:rest*': ':rest*'
+  },
 
   lastUpdated: true,
   cleanUrls: true,
@@ -59,6 +64,10 @@ export const shared = defineConfig({
         indexName: 'vitepress',
         locales: {
           ...zhSearch,
+          ...ptSearch,
+          ...ruSearch,
+          ...esSearch,
+          ...koSearch
         }
       }
     },
