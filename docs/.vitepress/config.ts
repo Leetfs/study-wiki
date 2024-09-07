@@ -49,10 +49,11 @@ const baseConfig = {
 } satisfies Partial<SidebarOptions>
 
 const sidebarOptions = [
-  // 数据库理
+  // 数据库
   {
     ...baseConfig,
     scanStartPath: 'sql',
+    resolvePath: '/sql/',
   },
   // 贡献指南
   {
