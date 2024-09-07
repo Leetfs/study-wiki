@@ -14,26 +14,36 @@ jobs:
       - name: 检出代码库
         uses: actions/checkout@v3
 
-      # 第二步：安装 pnpm
+      # 第二步：安装 pnpm 并设置 SHELL 环境变量
       - name: 安装 pnpm
         run: |
           curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
           pnpm setup  # 设置 pnpm 全局路径
         shell: bash
+        env:
+          SHELL: /bin/bash  # 设置 SHELL 环境变量为 bash
 
-      # 第三步：安装依赖
+      # 第三步：将 pnpm 的全局路径添加到 PATH 中
+      - name: 添加 pnpm 到 PATH
+        run: |
+          PNPM_HOME=$(pnpm env get-bin-path)  # 获取 pnpm 的全局路径
+          echo "PNPM_HOME=$PNPM_HOME" >> $GITHUB_ENV  # 设置 PNPM_HOME 环境变量
+          echo "$PNPM_HOME" >> $GITHUB_PATH  # 将全局路径添加到 PATH
+        shell: bash
+
+      # 第四步：安装依赖
       - name: 安装依赖
         run: pnpm install  # 使用 pnpm 安装依赖
 
-      # 第四步：构建项目
+      # 第五步：构建项目
       - name: 构建项目
         run: pnpm run docs:build  # 使用 pnpm 构建项目
 
-      # 第五步：全局安装 Wrangler
+      # 第六步：全局安装 Wrangler
       - name: 全局安装 Wrangler
         run: pnpm add -g wrangler  # 使用 pnpm 全局安装 Wrangler
 
-      # 第六步：发布到 Cloudflare Pages
+      # 第七步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
