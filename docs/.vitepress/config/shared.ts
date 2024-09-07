@@ -61,10 +61,6 @@ export const shared = defineConfig({
         indexName: 'vitepress',
         locales: {
           ...zhSearch,
-          ...ptSearch,
-          ...ruSearch,
-          ...esSearch,
-          ...koSearch
         }
       }
     },
