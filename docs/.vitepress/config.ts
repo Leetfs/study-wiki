@@ -100,6 +100,7 @@ export default defineConfig({
     title: 'study-wiki',  // 设置网站的名称
     description: '这是一份学习笔记',  // 设置网站描述
     themeConfig: {
+      nav, //使用定义的nav
       // 其他主题配置项
     }
   })
