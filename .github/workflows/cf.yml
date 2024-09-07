@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: 部署到 Cloudflare Pages
 
 on:
   push:
@@ -10,32 +10,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: 检出代码库
-      - name: Checkout repository
+      # 第一步：检出代码库
+      - name: 检出代码库
         uses: actions/checkout@v3
 
-      # Step 2: 安装 pnpm
-      - name: Install pnpm
+      # 第二步：安装 pnpm
+      - name: 安装 pnpm
         run: |
           curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+          pnpm setup
+        shell: bash
 
-      # Step 3: 安装依赖
-      - name: Install dependencies
+      # 第三步：将 pnpm 的全局路径添加到环境变量 PATH 中
+      - name: 添加 pnpm 到 PATH
+        run: echo "::add-path::$(pnpm env get-bin-path)"
+
+      # 第四步：安装依赖
+      - name: 安装依赖
         run: pnpm install
 
-      # Step 4: 构建项目
-      - name: Build project
+      # 第五步：构建项目
+      - name: 构建项目
         run: pnpm run docs:build  # 使用 pnpm 构建 VitePress 项目
 
-      # Step 5: 安装 Wrangler (Cloudflare CLI)
-      - name: Install Wrangler
+      # 第六步：安装 Wrangler (Cloudflare CLI 工具)
+      - name: 安装 Wrangler
         run: pnpm add -g wrangler
 
-      # Step 6: 发布到 Cloudflare Pages
-      - name: Publish to Cloudflare Pages
+      # 第七步：发布到 Cloudflare Pages
+      - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }} # 在 GitHub Secrets 中配置你的 Cloudflare API Token
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
-          projectName: study-wiki # 替换为 Cloudflare Pages 项目名称
+          projectName: 你的-cloudflare-项目名称 # 替换为 Cloudflare Pages 项目名称
           directory: docs/.vitepress/dist # 替换为 VitePress 构建输出的目录
