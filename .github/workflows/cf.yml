@@ -1,35 +1,29 @@
-name: 部署到 Cloudflare Pages
+name: 部署到Cloudflare Pages
 
 on:
   push:
     branches:
-      - main  # 当代码推送到 main 分支时触发
+      - 'main'  # 监听 main 分支的推送
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-22.04  # 选择 Ubuntu 22.04 作为运行环境
 
     steps:
-      # 第一步：检出代码库
-      - name: 检出代码库
-        uses: actions/checkout@v3
+      # 第一步：检出代码
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 完整检出代码历史
 
-      # 第二步：安装 pnpm 并设置 SHELL 环境变量
-      - name: 安装 pnpm
-        run: |
-          curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-          pnpm setup  # 设置 pnpm 全局路径
-        shell: bash
-        env:
-          SHELL: /bin/bash  # 设置 SHELL 环境变量为 bash
+      # 第二步：安装 pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest  # 安装最新版本的 pnpm
 
-      # 第三步：将 pnpm 的全局路径添加到 PATH 中
-      - name: 添加 pnpm 到 PATH
-        run: |
-          PNPM_HOME=$(pnpm env get-bin-path)  # 获取 pnpm 的全局路径
-          echo "PNPM_HOME=$PNPM_HOME" >> $GITHUB_ENV  # 设置 PNPM_HOME 环境变量
-          echo "$PNPM_HOME" >> $GITHUB_PATH  # 将全局路径添加到 PATH
-        shell: bash
+      # 第三步：设置 Node.js 环境并启用 pnpm 缓存
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm  # 启用 pnpm 缓存，加快依赖安装速度
 
       # 第四步：安装依赖
       - name: 安装依赖
@@ -37,17 +31,16 @@ jobs:
 
       # 第五步：构建项目
       - name: 构建项目
-        run: pnpm run docs:build  # 使用 pnpm 构建项目
+        run: pnpm build  # 构建 VitePress 文档
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096  # 增加 Node.js 内存限制
 
-      # 第六步：全局安装 Wrangler
-      - name: 全局安装 Wrangler
-        run: pnpm add -g wrangler  # 使用 pnpm 全局安装 Wrangler
-
-      # 第七步：发布到 Cloudflare Pages
+      # 第六步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # 在 GitHub Secrets 中配置你的 Cloudflare API Token
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}  # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
-          projectName: study-wiki  # Cloudflare Pages 项目名称
-          directory: docs/.vitepress/dist  # 替换为 VitePress 构建输出的目录
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}  # Cloudflare Pages API Token
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}  # Cloudflare 账户 ID
+          projectName: study-wiki  # 项目名称，替换为你的 Cloudflare Pages 项目名称
+          directory: docs/.vitepress/dist  # 构建输出的目录
+          wranglerVersion: '3'  # 使用 Wrangler v3 版本
