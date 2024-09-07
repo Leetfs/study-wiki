@@ -161,3 +161,15 @@
 .VPButton.medium {
   border-radius: 8px !important;
 }
+
+
+/* 使用更高优先级覆盖导航栏背景 */
+header.vp-nav, header.vp-nav.sticky {
+  background-color: transparent !important; /* 强制覆盖背景颜色 */
+  box-shadow: none !important; /* 移除阴影 */
+}
+
+/* 如果导航栏使用了自定义 class 例如 .sticky-active 或其他名称时，也覆盖 */
+header.vp-nav.sticky-active {
+  background-color: transparent !important;
+}
