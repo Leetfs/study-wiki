@@ -43,3 +43,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}  # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
           projectName: study-wiki  # Cloudflare Pages 项目名称
           directory: docs/.vitepress/dist  # 替换为 VitePress 构建输出的目录
+          args: --commit-dirty=true  # 允许提交未提交的更改
