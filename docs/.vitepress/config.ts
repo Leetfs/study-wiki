@@ -1,3 +1,4 @@
+// .vitepress/config.ts
 import { defineConfig } from 'vitepress'
 
 type NavConfig = DefaultTheme.Config['nav']
@@ -94,4 +95,8 @@ const themeConfig: ThemeContext = {
 
 
 // https://vitepress.vuejs.org/config/app-configs
-export default defineConfig({})
+export default defineConfig({
+    themeConfig: {
+      // 其他主题配置项
+    }
+  })
