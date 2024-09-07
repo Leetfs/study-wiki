@@ -1,20 +1,20 @@
 ---
 layout: home
 
-title: VitePress
-titleTemplate: 由 Vite 和 Vue 驱动的静态站点生成器
+title: study-wiki
+titleTemplate: 一份简单的学习笔记
 
 hero:
-  name: VitePress
-  text: 由 Vite 和 Vue 驱动的静态站点生成器
-  tagline: 将 Markdown 变成优雅的文档，只需几分钟
+  name: study-wiki
+  text: 一份简单的学习笔记
+  tagline: 使用 VitePress 部署
   actions:
     - theme: brand
-      text: 什么是 VitePress?
-      link: /guide/what-is-vitepress
+      text: Web
+      link: /web/
     - theme: alt
-      text: 快速开始
-      link: /guide/getting-started
+      text: SQL
+      link: /SQL/
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
@@ -22,6 +22,7 @@ hero:
       src: /vitepress-logo-large.webp
       alt: VitePress
 
+<!--
 features:
   - icon: 📝
     title: 专注内容
@@ -35,6 +36,7 @@ features:
   - icon: 🚀
     title: 速度真的很快！
     details: 采用静态 HTML 实现快速的页面初次加载，使用客户端路由实现快速的页面切换导航。
+-->
 ---
 <style>
 :root {
