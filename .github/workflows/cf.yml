@@ -14,42 +14,30 @@ jobs:
       - name: 检出代码库
         uses: actions/checkout@v3
 
-      # 第二步：安装 pnpm 并设置 SHELL 环境变量
+      # 第二步：安装 pnpm
       - name: 安装 pnpm
         run: |
           curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-          pnpm setup
-        shell: bash
-        env:
-          SHELL: /bin/bash  # 设置 SHELL 环境变量为 bash
-
-      # 第三步：将 pnpm 的全局路径添加到 PATH 中
-      - name: 添加 pnpm 到 PATH
-        run: |
-          echo "PNPM_HOME=$(pnpm env get-bin-path)" >> $GITHUB_ENV  # 获取 pnpm 的全局路径
-          echo "$PNPM_HOME" >> $GITHUB_PATH  # 将全局路径添加到 PATH
+          pnpm setup  # 设置 pnpm 全局路径
         shell: bash
 
-      # 第四步：安装依赖
+      # 第三步：安装依赖
       - name: 安装依赖
-        run: pnpm install
+        run: pnpm install  # 使用 pnpm 安装依赖
 
-      # 第五步：构建项目
+      # 第四步：构建项目
       - name: 构建项目
-        run: pnpm run docs:build  # 使用 pnpm 构建 VitePress 项目
+        run: pnpm run docs:build  # 使用 pnpm 构建项目
 
-      # 第六步：安装 Wrangler (Cloudflare CLI 工具)
-      - name: 安装 Wrangler
-        run: |
-          pnpm env use --global  # 确保 pnpm 的环境设置正确
-          pnpm add -g wrangler  # 全局安装 wrangler
-        shell: bash
+      # 第五步：全局安装 Wrangler
+      - name: 全局安装 Wrangler
+        run: pnpm add -g wrangler  # 使用 pnpm 全局安装 Wrangler
 
-      # 第七步：发布到 Cloudflare Pages
+      # 第六步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }} # 在 GitHub Secrets 中配置你的 Cloudflare API Token
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
-          projectName: study-wiki # 替换为 Cloudflare Pages 项目名称
-          directory: docs/.vitepress/dist # 替换为 VitePress 构建输出的目录
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # 在 GitHub Secrets 中配置你的 Cloudflare API Token
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}  # 在 GitHub Secrets 中配置你的 Cloudflare Account ID
+          projectName: study-wiki  # Cloudflare Pages 项目名称
+          directory: docs/.vitepress/dist  # 替换为 VitePress 构建输出的目录
