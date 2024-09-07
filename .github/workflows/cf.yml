@@ -23,11 +23,12 @@ jobs:
         env:
           SHELL: /bin/bash  # 设置 SHELL 环境变量为 bash
 
-      # 第三步：将 pnpm 的全局路径添加到 PATH 中，使用环境文件方法
+      # 第三步：将 pnpm 的全局路径添加到 PATH 中
       - name: 添加 pnpm 到 PATH
         run: |
-          echo "PNPM_HOME=$(pnpm env get-bin-path)" >> $GITHUB_ENV
-          echo "$PNPM_HOME" >> $GITHUB_PATH
+          echo "PNPM_HOME=$(pnpm env get-bin-path)" >> $GITHUB_ENV  # 获取 pnpm 的全局路径
+          echo "$PNPM_HOME" >> $GITHUB_PATH  # 将全局路径添加到 PATH
+        shell: bash
 
       # 第四步：安装依赖
       - name: 安装依赖
@@ -39,7 +40,10 @@ jobs:
 
       # 第六步：安装 Wrangler (Cloudflare CLI 工具)
       - name: 安装 Wrangler
-        run: pnpm add -g wrangler
+        run: |
+          pnpm env use --global  # 确保 pnpm 的环境设置正确
+          pnpm add -g wrangler  # 全局安装 wrangler
+        shell: bash
 
       # 第七步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
