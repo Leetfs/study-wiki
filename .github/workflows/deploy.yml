@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: 部署到 Cloudflare Pages
 
 on:
   push:
@@ -10,19 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 检出代码库
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: 安装依赖
         run: npm install
 
-      - name: Build project
+      - name: 构建项目
         run: npm run docs:build
 
-      - name: Install Wrangler
+      - name: 全局安装 Wrangler
         run: npm install -g wrangler
 
-      - name: Publish to Cloudflare Pages
+      - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
