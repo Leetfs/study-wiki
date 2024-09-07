@@ -6,7 +6,7 @@ on:
       - main  # 当代码推送到 master 分支时触发
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
