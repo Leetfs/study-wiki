@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { search as zhSearch } from './zh'
 
-
 export const shared = defineConfig({
   title: 'study-wiki',
 
@@ -49,18 +48,16 @@ export const shared = defineConfig({
   themeConfig: {
     logo: { src: '/vitepress-logo-mini.svg', width: 24, height: 24 },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/Leetfs/study' }
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Leetfs/study' }],
 
     search: {
       provider: 'algolia',
       options: {
         appId: '8J64VVRP8K',
         apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-        indexName: 'vitepress',
+        indexName: 'study-wiki',
         locales: {
-          ...zhSearch,
+          ...zhSearch
         }
       }
     },
