@@ -342,18 +342,18 @@ onKeyStroke('Escape', () => {
 // Translations
 const defaultTranslations: { modal: ModalTranslations } = {
   modal: {
-    displayDetails: 'Display detailed list',
-    resetButtonTitle: 'Reset search',
-    backButtonTitle: 'Close search',
-    noResultsText: 'No results for',
+    displayDetails: '显示详细列表',
+    resetButtonTitle: '重置',
+    backButtonTitle: '关闭',
+    noResultsText: '未找到相关的结果',
     footer: {
-      selectText: 'to select',
-      selectKeyAriaLabel: 'enter',
-      navigateText: 'to navigate',
-      navigateUpKeyAriaLabel: 'up arrow',
-      navigateDownKeyAriaLabel: 'down arrow',
-      closeText: 'to close',
-      closeKeyAriaLabel: 'escape'
+      selectText: '选择',
+      selectKeyAriaLabel: '回车',
+      navigateText: '切换',
+      navigateUpKeyAriaLabel: '上箭头',
+      navigateDownKeyAriaLabel: '下箭头',
+      closeText: '关闭',
+      closeKeyAriaLabel: '退出'
     }
   }
 }

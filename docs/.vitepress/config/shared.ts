@@ -51,7 +51,7 @@ export const shared = defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/Leetfs/study' }],
 
     search: {
-      provider: 'local', //改为algolia即为使用algolia搜索
+      provider: 'local', //当前为本地搜索，改为algolia即为使用algolia搜索
       //这里放密钥
       options: {
         appId: '8J64VVRP8K',
