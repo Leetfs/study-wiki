@@ -20,7 +20,7 @@ export const zh = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/Leetfs/study:path',
+      pattern: 'https://github.com/Leetfs/study-wiki/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
