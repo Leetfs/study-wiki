@@ -17,8 +17,8 @@ export const zh = defineConfig({
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
       '/reference/': { base: '/reference/', items: sidebarReference() },
-      '/computer/': { base: '/computer/', items: getSidebar('computer') }, //引入getSidebar函数，动态生成侧边栏
-      '/web/': { base: '/web/', items: getSidebar('web') }
+      '/computer/': { items: getSidebar('computer') }, //引入getSidebar函数，动态生成侧边栏
+      '/web/': { items: getSidebar('web') }
     },
 
     editLink: {
