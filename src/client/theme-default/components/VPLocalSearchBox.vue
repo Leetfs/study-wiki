@@ -119,7 +119,7 @@ const buttonText = computed(() => {
   return (
     options?.locales?.[localeIndex.value]?.translations?.button?.buttonText ||
     options?.translations?.button?.buttonText ||
-    'Search'
+    '搜索文档'
   )
 })
 
