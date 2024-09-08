@@ -31,6 +31,16 @@ provide('hero-image-slot-exists', heroImageSlotExists)
 </script>
 
 <template>
+
+  <div>
+    <h1>{{ frontmatter.title }}</h1>  <!-- 每个页面都将显示 Frontmatter 中的 title 作为大标题 -->
+    
+    <!-- 页面内容 -->
+    <slot />
+  </div>
+
+
+
   <div v-if="frontmatter.layout !== false" class="Layout" :class="frontmatter.pageClass" >
     <slot name="layout-top" />
     <VPSkipLink />
