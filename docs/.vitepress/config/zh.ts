@@ -8,7 +8,7 @@ const pkg = require('vitepress/package.json')
 
 export const zh = defineConfig({
   lang: 'zh-Hans',
-  description: '一个简单的学习笔记',
+  description: '一份简单的学习笔记',
 
   themeConfig: {
     nav: nav(),
