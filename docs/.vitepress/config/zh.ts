@@ -3,12 +3,6 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 import { getSidebar } from '../../../src/node/utils/sidebar'; // 根据项目结构调整路径
 
-export const zh = {
-  sidebar: {
-    '/web/': getSidebar('web'),  // 传入相对路径
-    '/computer/': getSidebar('computer')
-  }
-};
 
 const require = createRequire(import.meta.url)
 const pkg = require('vitepress/package.json')
@@ -22,7 +16,9 @@ export const zh = defineConfig({
 
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
-      '/reference/': { base: '/reference/', items: sidebarReference() }
+      '/reference/': { base: '/reference/', items: sidebarReference() },
+      '/computer/': { base: '/computer/', items: getSidebar('computer') }, //引入getSidebar函数，动态生成侧边栏
+      '/web/': { base: '/web/', items: getSidebar('web') }
     },
 
     editLink: {
