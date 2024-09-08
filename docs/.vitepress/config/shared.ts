@@ -3,7 +3,7 @@ import { search as zhSearch } from './zh'
 
 
 export const shared = defineConfig({
-  title: 'VitePress',
+  title: 'study-wiki',
 
   rewrites: {
     'zh/:rest*': ':rest*'
