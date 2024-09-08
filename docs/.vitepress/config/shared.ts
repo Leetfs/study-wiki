@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { search as zhSearch } from '.'
+import { search as zhSearch } from './zh'
 
 
 export const shared = defineConfig({
