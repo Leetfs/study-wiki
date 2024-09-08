@@ -1,7 +1,7 @@
 import { createRequire } from 'module'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 
-import { getSidebar } from '../../../src/node/utils/sidebar'; // 根据项目结构调整路径
+import { getSidebar } from '../../../src/node/utils/getSidebar'; // 根据项目结构调整路径
 
 
 const require = createRequire(import.meta.url)
