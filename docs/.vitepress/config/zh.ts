@@ -9,7 +9,7 @@ const pkg = require('vitepress/package.json')
 
 export const zh = defineConfig({
   lang: 'zh-Hans',
-  description: '由 Vite 和 Vue 驱动的静态站点生成器',
+  description: '一个简单的学习笔记',
 
   themeConfig: {
     nav: nav(),
@@ -22,7 +22,7 @@ export const zh = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/:path',
+      pattern: 'https://github.com/Leetfs/study:path',
       text: '在 GitHub 上编辑此页面'
     },
 

@@ -7,7 +7,7 @@ titleTemplate: 一份简单的学习笔记
 hero:
   name: study-wiki
   text: 一份简单的学习笔记
-  tagline: 使用 VitePress 部署
+  tagline: 通过 GitHub Actions 自动构建 VitePress 项目并部署到 Cloudflare Pages
   actions:
     - theme: brand
       text: Web
