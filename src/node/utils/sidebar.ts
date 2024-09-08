@@ -11,7 +11,7 @@ interface SidebarItem {
 
 // 动态生成侧边栏的函数
 export function getSidebar(dir: string): SidebarItem[] {
-  const fullPath = path.resolve(__dirname, '../', dir); // 获取目录的绝对路径
+  const fullPath = path.resolve(__dirname, '../../../zh/', dir); // 获取目录的绝对路径
   const files = fs.readdirSync(fullPath); // 读取目录中的文件和子目录
 
   // 遍历文件和目录，生成侧边栏结构
