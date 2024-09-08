@@ -1,9 +1,6 @@
 ---
 title: 计算机基础
-icon: creative
-category:
-  - computer
-index: false
+priority: 1
 ---
 
 # 这里是首页

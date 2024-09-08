@@ -14,10 +14,14 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v3
 
-      # 第二步：清理未提交的更改
-      # 如果你不希望忽略未提交的更改，可以删除这一步
-      - name: 清理未提交的更改
-        run: git reset --hard
+      # 第二步：缓存 pnpm 包
+      - name: 缓存 pnpm 包
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-cache-${{ runner.os }}-
 
       # 第三步：安装 pnpm
       - name: 安装 pnpm
@@ -27,23 +31,17 @@ jobs:
 
       # 第四步：安装依赖
       - name: 安装依赖
-        run: pnpm install  # 使用 pnpm 安装依赖
+        run: pnpm install --frozen-lockfile  # 使用冻结的 lockfile 安装依赖
 
       # 第五步：构建项目
       - name: 构建项目
         run: pnpm run docs:build  # 构建 VitePress 项目
 
-      # 第六步：检查构建输出目录
-      # 确保构建成功并生成输出文件，避免 ENOENT 错误
-      - name: 检查构建输出
-        run: ls -alh docs/.vitepress/dist
-
-      # 第七步：安装最新版本的 Wrangler
-      # 确保使用 Wrangler v3 而不是 v2
+      # 第六步：安装 Wrangler
       - name: 安装 Wrangler
         run: pnpm add -g wrangler@3  # 安装 Wrangler v3
 
-      # 第八步：发布到 Cloudflare Pages
+      # 第七步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -51,11 +49,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}  # Cloudflare 账户 ID
           projectName: study-wiki  # Cloudflare Pages 项目名称
           directory: docs/.vitepress/dist  # 构建输出目录
-          wranglerVersion: '3'  # 使用 Wrangler v3
-
-      # 第九步：处理未捕获的异常
-      # 捕获未处理的 Promise 异常，避免构建失败
-      - name: 捕获未处理的 Promise 异常
-        run: |
-          set -e  # 确保脚本在遇到错误时停止
-          node -e "process.on('unhandledRejection', (err) => { throw err; });"
+          wranglerVersion: '3'
