@@ -6,7 +6,7 @@ Study-Wiki 是一个基于 VitePress 构建的学习笔记文档项目，通过 
 
 - 使用 VitePress 构建文档站点
 - 支持多语言（默认首页设置为 `docs/zh`）
-- 新增自动生成目录的侧边栏功能(src\node\utils\getSidebar.ts)，调用参考(docs\.vitepress\config\zh.ts)
+- 新增自动生成目录的侧边栏功能`src/node/utils/getSidebar.ts`，调用参考`docs/.vitepress/config/zh.ts`
 - 使用 GitHub Actions 实现自动部署到 Cloudflare Pages
 
 ## 引用项目
