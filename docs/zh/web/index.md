@@ -1,10 +1,9 @@
 ---
 title: 网页
-index: false
-icon: creative
-category:
-  - 网页
+priority: 1
 ---
+
+# 首页
 
 ## 迁移中
 web新旧笔记迁移中，先移步[旧网站](https://web.mtftm.com)浏览\
