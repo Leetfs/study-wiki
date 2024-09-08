@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useData } from '../composables/data'
 import VPDocAsideOutline from './VPDocAsideOutline.vue'
-import VPDocAsideCarbonAds from './VPDocAsideCarbonAds.vue'
 
 const { theme } = useData()
 </script>
