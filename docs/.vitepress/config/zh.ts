@@ -6,8 +6,8 @@ import { getSidebar } from '../../../src/node/utils/sidebar'; // 根据项目结
 export default {
   themeConfig: {
     sidebar: {
-      '/computer/': getSidebar('/computer'), // 动态生成的侧边栏，用于 /reference 路径
-      '/web/': getSidebar('/web'), // 你可以根据需要使用动态生成的
+      '/computer/': getSidebar('computer'), // 动态生成的侧边栏，用于 /reference 路径
+      '/web/': getSidebar('web'), // 你可以根据需要使用动态生成的
     }
   }
 };
