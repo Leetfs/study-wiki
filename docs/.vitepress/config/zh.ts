@@ -99,7 +99,7 @@ function nav(): DefaultTheme.NavItem[] {
 }
 
 
-export const search: DefaultTheme.AlgoliaSearchOptions['locales'] = {
+export const search: DefaultTheme.LocalSearchOptions['locales'] = {
   zh: {
     placeholder: '搜索文档',
     translations: {
