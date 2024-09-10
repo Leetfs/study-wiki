@@ -15,7 +15,8 @@ export const zh = defineConfig({
 
     sidebar: {
       '/computer/': { items: getSidebar('computer') }, //引入getSidebar函数，动态生成侧边栏
-      '/web/': { items: getSidebar('web') }
+      '/web/': { items: getSidebar('web') },
+      '/sql/': { items: getSidebar('sql') }
     },
 
     editLink: {
@@ -65,6 +66,11 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Web 前端',
       link: '/web',
       activeMatch: '/web/'
+    },
+    {
+      text: 'SQL',
+      link: '/sql',
+      activeMatch: '/sql/'
     },
     // {
     //   text: pkg.version, // 从 package.json 中获取版本号
