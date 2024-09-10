@@ -48,15 +48,17 @@ export const shared = defineConfig({
   themeConfig: {
     logo: { src: '/vitepress-logo-mini.svg', width: 24, height: 24 },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/Leetfs/study' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/Leetfs/study-wiki' }
+    ],
 
     search: {
       provider: 'local', //当前为本地搜索，改为algolia即为使用algolia搜索
       //这里放密钥
       options: {
-        appId: '8J64VVRP8K',
-        apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-        indexName: 'study-wiki',
+        appId: '7TVF3EH3XN',
+        apiKey: '337399ff31c4088e9ea2a7ffb8bf6372',
+        indexName: 'study-mtftm',
         locales: {
           ...zhSearch
         }

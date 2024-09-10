@@ -1,5 +1,6 @@
 ---
 title: 数据库
+priority: 1
 ---
 
 # 数据库
