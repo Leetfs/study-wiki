@@ -58,19 +58,19 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '计算机基础',
-      link: '/computer',
-      activeMatch: '/computer/'
+      text: 'SQL',
+      link: '/sql',
+      activeMatch: '/sql/'
     },
     {
-      text: 'Web 前端',
+      text: 'Web',
       link: '/web',
       activeMatch: '/web/'
     },
     {
-      text: 'SQL',
-      link: '/sql',
-      activeMatch: '/sql/'
+      text: '计算机基础',
+      link: '/computer',
+      activeMatch: '/computer/'
     },
     // {
     //   text: pkg.version, // 从 package.json 中获取版本号

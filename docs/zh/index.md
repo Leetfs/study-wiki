@@ -10,11 +10,11 @@ hero:
   tagline: 使用 GitHub Actions 自动构建 VitePress 项目并部署到 Cloudflare Pages
   actions:
     - theme: brand
-      text: Web
-      link: /web/
-    - theme: alt
       text: SQL
       link: /sql/
+    - theme: alt
+      text: Web
+      link: /web/
     - theme: alt
       text: 计算机基础
       link: /computer/
