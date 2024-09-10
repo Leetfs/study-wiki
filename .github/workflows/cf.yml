@@ -3,7 +3,7 @@ name: 部署到 Cloudflare Pages
 on:
   push:
     branches:
-      - 'main'  # 当推送到 main 分支时触发
+      - 'main' # 当推送到 main 分支时触发
 
 jobs:
   deploy:
@@ -22,22 +22,21 @@ jobs:
 
       # 第三步：安装依赖
       - name: 安装依赖
-        run: pnpm install --frozen-lockfile  # 使用冻结的 lockfile 安装依赖
+        run: pnpm install --frozen-lockfile # 使用冻结的 lockfile 安装依赖
 
       # 第四步：构建项目
       - name: 构建项目
-        run: pnpm run docs:build  # 构建 VitePress 项目
+        run: pnpm run docs:build # 构建 VitePress 项目
 
       # 第五步：安装 Wrangler
       - name: 安装 Wrangler
-        run: pnpm add -g wrangler@3  # 安装 Wrangler v3
+        run: pnpm add -g wrangler@3 # 安装 Wrangler v3
 
       # 第六步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}  # Cloudflare Pages API Token
-          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}  # Cloudflare 账户 ID
-          projectName: study-wiki  # Cloudflare Pages 项目名称
-          directory: docs/.vitepress/dist  # 构建输出目录
-          wranglerVersion: '3'
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }} # Cloudflare Pages API Token
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }} # Cloudflare 账户 ID
+          projectName: study-wiki # Cloudflare Pages 项目名称
+          directory: docs/.vitepress/dist # 构建输出目录
