@@ -9,7 +9,7 @@ priority: 1
 
 如果想对此项目做出贡献，参考右上角/其他/[贡献指南](https://study.mtftm.com/others/2)
 
-基于![GitHub License](https://img.shields.io/github/license/Leetfs/study-wiki?logo=git) 发布，对项目满意的话，请给我点个![GitHub Repo stars](https://img.shields.io/github/stars/Leetfs/study-wiki)
+基于 ![GitHub License](https://img.shields.io/github/license/Leetfs/study-wiki?logo=git) 发布，对项目满意的话，请给我点个 ![GitHub Repo stars](https://img.shields.io/github/stars/Leetfs/study-wiki)
 
 
 ## “数据库”课程考核内容
