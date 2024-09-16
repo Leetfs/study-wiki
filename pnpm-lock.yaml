@@ -61,6 +61,9 @@ importers:
       vite:
         specifier: ^5.4.2
         version: 5.4.2(@types/node@22.5.1)
+      vitepress-reading-time:
+        specifier: ^1.0.0
+        version: 1.0.0
       vue:
         specifier: ^3.4.38
         version: 3.4.38(typescript@5.5.4)
@@ -2645,6 +2648,9 @@ packages:
       terser:
         optional: true
 
+  vitepress-reading-time@1.0.0:
+    resolution: {integrity: sha512-z6OM6wBHhJ1nEEyRF+0wWn/0ZC6qoE7+dR7tev2xTMxXJQ1axUwnx7UZlYA6fhMJTdY1sPaOn7Nmi6Q39gbnnw==}
+
   vitest@2.0.5:
     resolution: {integrity: sha512-8GUxONfauuIdeSl5f9GTgVEpg5BTOlplET4WEDaeY2QBiN8wSm68vxN/tb5z405OwppfoCavnwXafiaYBC/xOA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -5017,6 +5023,8 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.5.1
       fsevents: 2.3.3
+
+  vitepress-reading-time@1.0.0: {}
 
   vitest@2.0.5(@types/node@22.5.1)(supports-color@9.4.0):
     dependencies:
