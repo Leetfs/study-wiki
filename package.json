@@ -113,7 +113,7 @@
     "minisearch": "^7.1.0",
     "shiki": "^1.15.2",
     "vite": "^5.4.2",
-    "vitepress-reading-time": "^1.0.1",
+    "vitepress-reading-time": "^1.0.2",
     "vue": "^3.4.38"
   },
   "devDependencies": {
