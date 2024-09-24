@@ -38,7 +38,7 @@ features:
 
 ---
 <style>
-:root {
+/* :root {
   --vp-home-hero-name-color: transparent !important;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff) !important;
 
@@ -56,5 +56,5 @@ features:
   :root {
     --vp-home-hero-image-filter: blur(68px) !important;
   }
-}
+} */
 </style>
