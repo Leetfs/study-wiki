@@ -56,6 +56,8 @@ CREATE DATABASE 数据库名
 CREATE DATABASE myDatabase;
 ```
 
+### 修改
+
 ### 向Student数据库中添加辅助文件extdata.ndf
 
 ```sql
@@ -69,3 +71,5 @@ ADD FILE
     FILEGROWTH = 8MB
 );
 ```
+
+## 
