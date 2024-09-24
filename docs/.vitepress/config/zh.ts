@@ -62,16 +62,17 @@ function nav(): DefaultTheme.NavItem[] {
       link: '/sql',
       activeMatch: '/sql/'
     },
-    {
-      text: 'Web',
-      link: '/web',
-      activeMatch: '/web/'
-    },
-    {
-      text: '计算机基础',
-      link: '/computer',
-      activeMatch: '/computer/'
-    },
+    // {
+    //   text: 'Web',
+    //   link: '/web',
+    //   activeMatch: '/web/'
+    // },
+    // {
+    //   text: '计算机基础',
+    //   link: '/computer',
+    //   activeMatch: '/computer/'
+    // },
+
     // {
     //   text: pkg.version, // 从 package.json 中获取版本号
     //   items: [

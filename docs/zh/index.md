@@ -12,12 +12,12 @@ hero:
     - theme: brand
       text: SQL
       link: /sql/
-    - theme: alt
-      text: Web
-      link: /web/
-    - theme: alt
-      text: 计算机基础
-      link: /computer/
+    # - theme: alt
+    #   text: Web
+    #   link: /web/
+    # - theme: alt
+    #   text: 计算机基础
+    #   link: /computer/
   image:
       src: /vitepress-logo-large.webp
       alt: VitePress
