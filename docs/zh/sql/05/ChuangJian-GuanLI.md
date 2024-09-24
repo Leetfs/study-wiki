@@ -53,10 +53,29 @@ CREATE DATABASE 数据库名
 ### 创建
 
 ```sql
-CREATE DATABASE myDatabase;
+CREATE DATABASE myDatabase
+on primary
+(
+    name = 逻辑文件名, 
+    FILENAME = '操作系统文件名'
+    SIZE = '大小'
+    MAXSIZE = '最大大小'
+    FILEGROWTH = '增长量'
+    
+)
 ```
 
 ### 修改
+
+```sql
+ALTER DATABASE myDatabase
+```
+
+### 删除
+
+```sql
+DROP DATABASE myDatabase;
+```
 
 ### 向Student数据库中添加辅助文件extdata.ndf
 
