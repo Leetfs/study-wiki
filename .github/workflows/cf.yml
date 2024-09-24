@@ -22,15 +22,15 @@ jobs:
 
       # 第三步：安装依赖
       - name: 安装依赖
-        run: pnpm install --frozen-lockfile # 使用冻结的 lockfile 安装依赖
+        run: pnpm install
 
       # 第四步：构建项目
       - name: 构建项目
-        run: pnpm run docs:build # 构建 VitePress 项目
+        run: pnpm run docs:build
 
       # 第五步：安装 Wrangler
       - name: 安装 Wrangler
-        run: pnpm add -g wrangler@3 # 安装 Wrangler v3
+        run: pnpm add -g wrangler@3
 
       # 第六步：发布到 Cloudflare Pages
       - name: 发布到 Cloudflare Pages
