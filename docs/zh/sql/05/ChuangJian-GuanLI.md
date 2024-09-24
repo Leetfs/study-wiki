@@ -48,13 +48,15 @@ CREATE DATABASE 数据库名
 ]
 ```
 
-#### 创建数据库代码样例
+## 数据库代码样例
+
+### 创建
 
 ```sql
 CREATE DATABASE myDatabase;
 ```
 
-#### 向Student数据库中添加辅助文件extdata.ndf
+### 向Student数据库中添加辅助文件extdata.ndf
 
 ```sql
 ALTER DATABASE Student
