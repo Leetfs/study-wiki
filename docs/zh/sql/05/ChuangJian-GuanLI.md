@@ -4,3 +4,10 @@ priority: 2
 ---
 
 ## 数据库常用对象
+
+
+### 系统数据库
+- master
+- model
+- msdb
+- tempdb
