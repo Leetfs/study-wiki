@@ -108,3 +108,42 @@ exec sp_detach_db myDatabase
 ```sql
 exec sp_attach_db myDatabase
 ```
+
+### 给数据库添加快照
+
+```sql
+CREATE DATABASE myDatabase_Snapshot ON
+(
+    NAME = myDatabase_Data,
+    FILENAME = 'C:\Path\To\Your\Directory\myDatabase_Snapshot.ss'
+)
+as snapshot of myDatabase;
+```
+
+### 删除数据库快照
+```sql
+DROP DATABASE myDatabase_Snapshot;
+```
+
+### 例：创建一个数据库StudentManagement
+
+```sql
+CREATE DATABASE StudentManagement
+on primary
+(
+    name = StudentManagement, 
+    FILENAME = 'C:\zedata'
+    SIZE = '8mb'
+    MAXSIZE = '20mb'
+    FILEGROWTH = '10%'  
+)
+log on
+(
+  name = logname,
+  filename = 'c://......',
+  size = 2mb,
+  maxsize = UNLIMITED,
+  FILEGROWTH = 10%
+)
+
+```
