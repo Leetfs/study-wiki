@@ -60,8 +60,11 @@ on primary
     FILENAME = '操作系统文件名'
     SIZE = '大小'
     MAXSIZE = '最大大小'
-    FILEGROWTH = '增长量'
-    
+    FILEGROWTH = '增长量'  
+)
+log on
+(
+
 )
 ```
 
@@ -69,6 +72,8 @@ on primary
 
 ```sql
 ALTER DATABASE myDatabase
+remove file
+add file
 ```
 
 ### 删除
@@ -76,6 +81,8 @@ ALTER DATABASE myDatabase
 ```sql
 DROP DATABASE myDatabase;
 ```
+
+
 
 ### 向Student数据库中添加辅助文件extdata.ndf
 
