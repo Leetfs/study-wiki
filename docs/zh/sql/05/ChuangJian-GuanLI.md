@@ -98,4 +98,13 @@ ADD FILE
 );
 ```
 
-## 
+### 分离数据库
+```sql
+exec sp_detach_db myDatabase
+```
+
+### 附加数据库
+
+```sql
+exec sp_attach_db myDatabase
+```
