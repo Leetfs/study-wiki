@@ -26,6 +26,18 @@ create table Department
     表名+类名+数据类型
 )
 
+### 约束条件
+
+表级约束条件：
+- 主键：primary key
+- 外键：foreign key
+- 唯一键：unique
+- 检查：check()
+
+列级约束条件
+- 默认值：default
+- 非空：not null
+
 ```sql
 create table Department
 (
@@ -34,10 +46,6 @@ create table Department
 )
 ```
 
-- 主键：primary key
-- 外键：foreign key
-- 唯一键：unique
-- 默认值：default
 
 ```sql
 DepartmentName char(4) foreign key references Title(TitleID)
