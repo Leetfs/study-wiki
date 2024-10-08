@@ -52,7 +52,7 @@ const themeConfig: ThemeContext = {
   /** vitepress 根目录 */
   rootDir: 'docs',
   /** 文档所在目录（目前似未使用此项） */
-  include: ['about', 'tips', 'life'],
+  include: ['sql', 'tips', 'life'],
   nav,
   sidebarOptions,
   /** 文档所在目录（用于GitHub编辑链接） */
