@@ -1,6 +1,7 @@
 ---
 title: 首页
 priority: 1
+index: false
 ---
 
 

@@ -26,7 +26,7 @@ jobs:
 
       # 第四步：构建项目
       - name: 构建项目
-        run: pnpm dev
+        run: pnpm build
       # 第五步：安装 Wrangler
       - name: 安装 Wrangler
         run: pnpm add -g wrangler@3
