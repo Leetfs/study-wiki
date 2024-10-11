@@ -49,7 +49,7 @@ const themeConfig: ThemeContext = {
   // SiteTitle值为false时，logo位置不显示标题。未定义SiteTitle时，显示标题。SiteTitle值为abcd时，显示abcd。
     //   SiteTitle: false,
   /** Repo */
-  githubRepoLink: 'https://github.com/Leetfs/blog',
+  githubRepoLink: 'https://github.com/Leetfs/study-wiki',
   /** vitepress 根目录 */
   rootDir: 'docs',
   /** 文档所在目录（目前似未使用此项） */
