@@ -1,6 +1,6 @@
 ---
 title: 种子与增量
-anthor: Lee
+author: Lee
 ---
 
 ## 种子
